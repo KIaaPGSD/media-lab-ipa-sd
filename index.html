@@ -14,12 +14,9 @@
 </head>
 <body class="bg-sky-50 min-h-screen flex flex-col">
 
-    <!-- Header dengan Logo UNNES -->
+    <!-- Header -->
     <header class="bg-blue-600 text-white shadow-md py-4 px-6 flex justify-between items-center">
-        <div class="flex items-center space-x-3">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/e/ed/Logo_Unnes_Semarang.png" alt="Logo UNNES" class="w-10 h-10 object-contain bg-white p-1 rounded-lg shadow-sm">
-            <h1 class="text-xl font-bold">🧪 Virtual Lab IPA Sekolah Dasar</h1>
-        </div>
+        <h1 class="text-xl font-bold">🧪 Virtual Lab IPA Sekolah Dasar</h1>
         <div class="space-x-2">
             <button onclick="switchTab('filtrasi')" id="btn-filtrasi" class="px-4 py-2 bg-blue-700 rounded-lg font-semibold text-sm transition">Lab Filtrasi Air</button>
             <button onclick="switchTab('magnet')" id="btn-magnet" class="px-4 py-2 bg-blue-500 rounded-lg font-semibold text-sm transition">Lab Magnet</button>
@@ -161,4 +158,19 @@
                 res.className = "mt-4 text-center font-bold text-sm text-emerald-600";
             } else {
                 res.innerHTML = '⚠️ Air berhasil disaring, namun hasilnya masih "Agak Keruh" karena susunan kurang ideal.';
-                res.className = "mt-4 text-
+                res.className = "mt-4 text-center font-bold text-sm text-amber-600";
+            }
+        }
+
+        // --- Logika Lab Magnet ---
+        function testMagnet(objectName, isMagnetic) {
+            const res = document.getElementById('magnet-result');
+            if (isMagnetic) {
+                res.innerHTML = `🧲 **${objectName}** berhasil **TERTARIK & MENEMPEL** pada magnet! <br><span class="text-xs text-emerald-600 font-normal">Kesimpulan: Benda ini berjenis **MAGNETIS** (terbuat dari logam/besi).</span>`;
+            } else {
+                res.innerHTML = `❌ **${objectName}** **TIDAK TERTARIK** dan diam saja saat didekatkan magnet. <br><span class="text-xs text-rose-600 font-normal">Kesimpulan: Benda ini berjenis **NON-MAGNETIS** (bukan logam).</span>`;
+            }
+        }
+    </script>
+</body>
+</html>
